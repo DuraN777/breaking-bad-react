@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import './App.css';
 import Header from './components/ui/header';
 import CharacterGrid from './components/characters/characterGrid';
+import Search from './components/ui/search';
 
 // HOOKS :
 // useState- allows to use state in functional component
@@ -22,10 +23,15 @@ const App = () => {
 // isLoading is true by default, after data is fetched its set to false.
   const [isLoading, setIsLoading] = useState(true);
 
+  // this is gonna represent whatever we type in search as name
+  const [query, setQuery ] = useState('')
+  
   // Axios is Promise based HTTP client for the browser and node.js
   useEffect ( () => {
     const fetchItems = async () => {
-      const result = await axios(`https://www.breakingbadapi.com/api/characters`);
+      // to put search result into query of what we ar fetching we add 'api/characters/name?'
+      // ${query} is part pf app level state
+      const result = await axios(`https://www.breakingbadapi.com/api/characters?name=${query}`);
       // set this fetched data to 'items' with setItems
       console.log(result.data);
 
@@ -34,11 +40,12 @@ const App = () => {
     }
 
     fetchItems()
-  }, [])
+  }, [query]) //adding query as dependancie, meaning whenever this value 'query is changed, fetch is gonna fire off again
 
   return (
     <div className='container'>
       <Header />
+      <Search getQuery={ (q) => setQuery(q)} />
       <CharacterGrid isLoading={isLoading} items={items} />
     </div>
   );
