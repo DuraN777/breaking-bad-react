@@ -54,10 +54,10 @@ header img {
 input[type='text'] {
   display: block;
   padding: 10px;
-  font-size: 20px;
+  font-size: 16px;
   border: 0;
   border-radius: 10px;
-  width: 50%;
+  width: 60%;
   margin: auto;
   outline: none;
 }
