@@ -21,7 +21,8 @@ const CharacterItem = ({item}) => {
               <strong>Birthday:</strong> {item.birthday}
             </li>
             <li>
-              <strong>occupation:</strong> {item.occupation}
+              {/* In order to present array values with ',' and ' ', I used join */}
+              <strong>occupation:</strong> {item.occupation.join(", ")}
             </li>
             <li>
               <strong>Status:</strong> {item.status}

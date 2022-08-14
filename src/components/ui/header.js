@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../img/logo.png'
 
-// bringing in a header, using center class and adding a logo img
+// Creating a header, using center class and adding a logo img
 const Header = () => {
   return (
     <header className='center'>
