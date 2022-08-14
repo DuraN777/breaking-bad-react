@@ -1,6 +1,6 @@
 import React from 'react'
 
-// I have access to all the data in the 'item'
+// I have access to all the data in the 'item' set as prop of CharacterItem in characterGrid: '<CharacterItem key={item.char_id} item= {item} ></CharacterItem>'
 const CharacterItem = ({item}) => {
   return (
     <div className='card'>
